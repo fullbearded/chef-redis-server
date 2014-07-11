@@ -33,5 +33,5 @@ end
 
 service "redis-server" do
   supports start: true, stop: true
-  action [ :enable, :start ]
+  action [ :start ]
 end
