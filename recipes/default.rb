@@ -25,7 +25,7 @@ template '/etc/redis/redis.conf' do
 end
 
 template '/etc/init.d/redis-server' do
-  source 'redis-server'
+  source 'redis-server.erb'
   mode 0755
   owner "root"
   group "root"
