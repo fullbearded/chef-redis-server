@@ -190,7 +190,7 @@ dbfilename <%= node[:redis][:db_basename] %>
 dir <%= node[:redis][:data_dir] %>
 ################################# REPLICATION #################################
 
-<% if @redis[:slave] == "yes" %>
+<% if node[:redis][:slave] == "yes" %>
 ################################# REPLICATION #################################
 
 # Master-Slave replication. Use slaveof to make a Redis instance a copy of
@@ -198,7 +198,7 @@ dir <%= node[:redis][:data_dir] %>
 # so for example it is possible to configure the slave to save the DB with a
 # different interval, or to listen to another port, and so on.
 
-slaveof <%= @redis[:master_server] %> <%= @redis[:master_port] %>
+slaveof <%= node[:redis][:master_server] %> <%= node[:redis][:master_port] %>
 <% end %>
 
 
