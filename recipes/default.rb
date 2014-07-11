@@ -9,6 +9,14 @@ install_from_release('redis') do
   not_if{ File.exists?(File.join(node[:redis][:home_dir], 'src', 'redis-server')) }
 end
 
+directory '/etc/redis' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+  recursive true
+end
+
 template '/etc/redis/redis.conf' do
   source 'redis.conf.erb'
   mode 0755
