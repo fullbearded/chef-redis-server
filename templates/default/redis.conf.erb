@@ -34,7 +34,7 @@
 
 # By default Redis does not run as a daemon. Use 'yes' if you need it.
 # Note that Redis will write a pid file in /var/run/redis.pid when daemonized.
-daemonize no
+daemonize <%= node[:redis][:daemonize] %>
 
 # When running daemonized, Redis writes a pid file in /var/run/redis.pid by
 # default. You can specify a custom pid file location here.
@@ -55,6 +55,7 @@ port <%= node[:redis][:server][:port] %>
 # in order to get the desired effect.
 tcp-backlog 511
 
+<% if node[:redis] && node[:redis][:do_bind]  %>
 # By default Redis listens for connections from all the network interfaces
 # available on the server. It is possible to listen to just one or multiple
 # interfaces using the "bind" configuration directive, followed by one or
@@ -64,6 +65,8 @@ tcp-backlog 511
 #
 # bind 192.168.1.100 10.0.0.1
 bind <%= node[:redis][:server][:addr] %>
+
+<% end %>
 
 # Specify the path for the Unix socket that will be used to listen for
 # incoming connections. There is no default, so Redis will not listen

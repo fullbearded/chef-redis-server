@@ -1,3 +1,4 @@
+
 #
 # Locations
 #
@@ -11,7 +12,8 @@ default[:redis][:pid_file]          = "/var/run/redis.pid"
 default[:redis][:db_basename]       = "dump.rdb"
 
 # Server
-
+default[:redis][:daemonize]         = 'yes'
+default[:redis][:do_bind]           = true
 default[:redis][:server][:addr]     = "0.0.0.0"
 default[:redis][:server][:port]     = "6379"
 
