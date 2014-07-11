@@ -1,17 +1,3 @@
-#chef-redis-server
-=================
-
-this is for redis-server, environment is CentOS 6.5.
-
-## Usage
-
-<pre>
-recipe['chef-redis-server']
-</pre>
-
-## Configuration
-
-<pre>
 #
 # Locations
 #
@@ -44,5 +30,3 @@ if (node[:redis][:slave] == "yes")
   default[:redis][:master_server]   = "redis-master." + domain
   default[:redis][:master_port]     = "6379"
 end
-
-</pre>
