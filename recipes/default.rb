@@ -31,8 +31,7 @@ template '/etc/init.d/redis-server' do
   group "root"
 end
 
-execute "restart-redis" do
-  command "/etc/init.d/redis-server restart"
-  action :nothing
+service "redis-server" do
+  supports start: true, stop: true
+  action [ :enable, :start ]
 end
-
