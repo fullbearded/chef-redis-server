@@ -1,5 +1,5 @@
 include_recipe "install_from"
-include_recipe "users::sysadmins"
+# include_recipe "users::sysadmins"
 
 install_from_release('redis') do
   release_url  node[:redis][:release_url]
